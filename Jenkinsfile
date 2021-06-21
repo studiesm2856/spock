@@ -5,7 +5,8 @@ pipeline {
       parallel {
         stage('log tool version') {
           steps {
-            sh '''mvn --version
+            sh '''mvn install
+mvn --version
 git --version
 java --version'''
           }
@@ -26,7 +27,7 @@ java --version'''
       }
     }
 
-    stage('') {
+    stage('error') {
       steps {
         writeFile(file: 'status.txt', text: 'hey i worked')
       }
